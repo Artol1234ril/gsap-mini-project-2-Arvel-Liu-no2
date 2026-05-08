@@ -1,0 +1,102 @@
+/* Container & Layout */
+.story-section {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-wrapper {
+  position: relative;
+  width: clamp(300px, 90vw, 700px);
+  height: clamp(300px, 70vh, 450px);
+}
+
+.story-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  will-change: transform, opacity;
+}
+
+/* Card Specific Colors */
+.bg-red { background: linear-gradient(135deg, #2d2d2d, #000000); z-index: 1; }
+.bg-blue { background: linear-gradient(135deg, #3a3a3a, #1a1a1a); z-index: 2; }
+.bg-purple { background: linear-gradient(135deg, #4a4a4a, #2d2d2d); z-index: 3; }
+
+/* Content Styles */
+.card-content h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  margin-bottom: 1rem;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.card-content p {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  line-height: 1.6;
+  opacity: 0.85;
+  color: #f0f0f0;
+}
+
+.card-btn {
+  margin-top: 2rem;
+  padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(1.5rem, 3vw, 2rem);
+  border: none;
+  border-radius: 50px;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+.card-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cards-wrapper {
+    width: 95vw;
+    height: clamp(250px, 60vh, 400px);
+  }
+
+  .story-card {
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-wrapper {
+    width: 98vw;
+    height: clamp(200px, 50vh, 300px);
+  }
+
+  .story-card {
+    padding: 1rem;
+  }
+
+  .card-content h2 {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .card-content p {
+    font-size: clamp(0.75rem, 2vw, 0.9rem);
+  }
+}
